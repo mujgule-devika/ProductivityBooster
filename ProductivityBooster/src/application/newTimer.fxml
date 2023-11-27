@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="btnStartTimer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="320.0" style="-fx-background-color: #FCCA46;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="timerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="320.0" style="-fx-background-color: #FCCA46;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TomatoTimerController">
    <children>
-      <ChoiceBox layoutX="85.0" layoutY="63.0" prefWidth="150.0" />
-      <Button layoutX="113.0" layoutY="127.0" mnemonicParsing="false" style="-fx-background-color: FFF;" text="START TIMER" />
-      <Label layoutX="127.0" layoutY="23.0" text="Select Task:" />
+      <Button fx:id="startButton" layoutX="26.0" layoutY="124.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="START" onAction="#handleStartButton" />
+      <Button fx:id="stopButton" layoutX="123.0" layoutY="124.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="STOP" onAction="#handleStopButton"/>
+      <Button fx:id="resetButton" layoutX="223.0" layoutY="124.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="RESET" onAction="#handleResetButton"/>
+      <Label id="timerLabel" fx:id="timerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="112.0" layoutY="49.0" prefHeight="37.0" prefWidth="97.0" text="00: 00">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
    </children>
 </AnchorPane>
