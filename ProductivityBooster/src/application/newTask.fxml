@@ -7,17 +7,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="480.0" style="-fx-background-color: #619B8A;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="480.0" style="-fx-background-color: #619B8A;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddPageController">
     <header>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" style="-fx-background-color: #FCCA46;">
          <children>
-            <Button layoutX="187.0" layoutY="128.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="107.0" style="-fx-background-color: FFF;" text="OK">
+            <Button fx:id="btnConfirmNewTask" layoutX="187.0" layoutY="128.0" mnemonicParsing="false" onAction="#addBtnConfirm" prefHeight="49.0" prefWidth="107.0" style="-fx-background-color: FFF;" text="OK">
                <font>
                   <Font name="Helvetica Neue" size="19.0" />
                </font>
             </Button>
-            <Label layoutX="203.0" layoutY="6.0" text="Add your task" />
-            <TextField layoutX="198.0" layoutY="47.0" />
+            <Label fx:id="addTaskTitleLabel" layoutX="203.0" layoutY="6.0" text="Add your task" />
+            <TextField fx:id="textTaskName" layoutX="161.0" layoutY="47.0" />
+            <TextField fx:id="textTaskDesc" layoutX="160.0" layoutY="87.0" />
          </children></AnchorPane>
     </header>
     <content>
