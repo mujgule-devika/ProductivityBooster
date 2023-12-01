@@ -162,11 +162,6 @@ public void handle(ActionEvent event) {
 	System.out.println("EDIT button clicked");
 	}
 
-//public void setOnAction(Handler1 handler1) {
-//	// TODO Auto-generated method stub
-//	System.out.println("EDIT button clicked");
-//
-//}
 }
 
     // Additional method to set the todoGridPane from the pop-up
