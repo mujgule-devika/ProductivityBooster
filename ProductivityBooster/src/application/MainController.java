@@ -4,6 +4,7 @@ package application;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,6 +18,15 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MainController {
+	
+//	@FXML
+//	AddPageController addPageController;
+	
+    @FXML Button btnConfirmNewTask;
+    
+    @FXML TextField textTaskName;
+    
+    @FXML TextField textTaskDesc;
 
     @FXML
     private Button btnAddTask;
@@ -45,7 +55,77 @@ public class MainController {
         }
     }
 
+    @FXML
+    void addBtnConfirm(ActionEvent event) {
+    	System.out.println("Content of text - title:" + textTaskName.getText());
+    	System.out.println("Content of text - description:" + textTaskDesc.getText());
+    	
+    	TaskItem newTask = new TaskItem(textTaskName.getText(),textTaskDesc.getText());
+    	
+    	AnchorPane taskPane = new AnchorPane();
+    	
+    	Label title = new Label(newTask.getTitle());
+    	Label desc = new Label(newTask.getDescription());
+    
+    	
+    	taskPane.getChildren().addAll(title,desc);
+    	
+    	todoGridPane.add(taskPane, 0, 0);
+//    	addTaskTitleLabel.setText(textTaskName.getText());
+    	
+    	Stage stage = (Stage) btnConfirmNewTask.getScene().getWindow();
+        stage.close();
+    	
+    }
     
     @FXML GridPane todoGridPane;
 
+//    @FXML
+//    void addBtnConfirm(ActionEvent event) {
+//    	System.out.println("Content of text - title:" + addPageController.textTaskName.getText());
+//    	System.out.println("Content of text - description:" + addPageController.textTaskDesc.getText());
+//    	
+//    	TaskItem newTask = new TaskItem(addPageController.textTaskName.getText(),addPageController.textTaskDesc.getText());
+//    	
+//    	AnchorPane taskPane = new AnchorPane();
+//    	
+//    	Label title = new Label(newTask.getTitle());
+//    	Label desc = new Label(newTask.getDescription());
+//    
+//    	
+//    	taskPane.getChildren().addAll(title,desc);
+//    	
+////    	mainController.todoGridPane.add(taskPane, 0, 0);
+////    	addTaskTitleLabel.setText(textTaskName.getText());
+//    	
+//    	Stage stage = (Stage) addPageController.btnConfirmNewTask.getScene().getWindow();
+//        stage.close();
+//    	
+//    }
+    
+//    public void initialize() {
+//    	addPageController.btnConfirmNewTask.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//            	System.out.println("Content of text - title:" + addPageController.textTaskName.getText());
+//            	System.out.println("Content of text - description:" + addPageController.textTaskDesc.getText());
+//            	
+//            	TaskItem newTask = new TaskItem(addPageController.textTaskName.getText(),addPageController.textTaskDesc.getText());
+//            	
+//            	AnchorPane taskPane = new AnchorPane();
+//            	
+//            	Label title = new Label(newTask.getTitle());
+//            	Label desc = new Label(newTask.getDescription());
+//            
+//            	
+//            	taskPane.getChildren().addAll(title,desc);
+//            	
+////            	mainController.todoGridPane.add(taskPane, 0, 0);
+////            	addTaskTitleLabel.setText(textTaskName.getText());
+//            	
+//            	Stage stage = (Stage) addPageController.btnConfirmNewTask.getScene().getWindow();
+//                stage.close();
+//            }
+//        });
+//    }
 }
