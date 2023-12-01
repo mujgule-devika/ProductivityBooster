@@ -18,7 +18,7 @@
       <VBox prefHeight="400.0" prefWidth="131.0" style="-fx-background-color: #233D4D;" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnAddTask" mnemonicParsing="false" onAction="#addBtnClick" prefHeight="62.0" prefWidth="133.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Add Task" textAlignment="CENTER" textFill="WHITE" />
-            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="133.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Tomato Timer" textAlignment="CENTER" textFill="WHITE" />
+            <Button fx:id="btnStartTimer" mnemonicParsing="false" onAction="#addBtnClick1" prefHeight="62.0" prefWidth="133.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Tomato Timer" textAlignment="CENTER" textFill="WHITE" />
             <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="133.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Button" textAlignment="CENTER" textFill="WHITE" />
          </children>
       </VBox>
