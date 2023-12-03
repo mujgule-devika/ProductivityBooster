@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,6 +13,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -97,26 +101,30 @@ public class MainController {
         AnchorPane taskPane = new AnchorPane();
         Label title = new Label(textTaskName.getText());
         Label desc = new Label(textTaskDesc.getText());
-        
+        title.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 20));  
+        desc.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 20)); 
+
         //BTTN
         Button edit = new Button("EDIT");
         Handler1 handler1 = new Handler1(taskPane);
         edit.setOnAction(handler1);
+        edit.setMinWidth(98);
+        edit.setMinHeight(44);
+        edit.setStyle("-fx-background-radius: 20px; -fx-background-color: #FFF;");
         
-        
+        AnchorPane.setRightAnchor(edit, 50d); // distance 0 from right side of 
+        AnchorPane.setTopAnchor(edit, 70d); // distance 0 from top
+            
         // Set layout properties to display label and description on separate lines
-        title.setLayoutY(5.0);
-        desc.setLayoutY(30.0);
-        
-        
-        
-       
-        taskPane.setStyle("-fx-background-color: #B0C4DE; -fx-border-color: #000000; -fx-border-width: 2px; -fx-padding: 10%;");
+        title.setLayoutY(30.0);
+        title.setLayoutX(60.0);
+        desc.setLayoutY(70.0);
+        desc.setLayoutX(60.0);
+              
+        taskPane.setStyle("-fx-background-color: #FCCA46; -fx-padding: 10%;  -fx-background-radius: 20px;");
 
         taskPane.getChildren().addAll(title, desc, edit);
         
-        
-
 //        todoGridPane.add(taskPane, 0, 0);
         // Find the next available position in the GridPane
         int rowIndex = 0;
@@ -299,21 +307,36 @@ public class MainController {
 		AnchorPane taskPane = new AnchorPane();
         Label title = new Label(editTextTaskName.getText());
         Label desc = new Label(editTextTaskDesc.getText());
+        title.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 20));  
+        desc.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 20)); 
+
+        
+        // Set layout properties to display label and description on separate lines
+        title.setLayoutY(20.0);
+        title.setLayoutX(50.0);
+        desc.setLayoutY(60.0);
+        desc.setLayoutX(50.0);
+       
         
         //BTTN
         Button edit = new Button("EDIT");
         Handler1 handler1 = new Handler1(taskPane);
         edit.setOnAction(handler1);
+        edit.setMinWidth(98);
+        edit.setMinHeight(44);
+        edit.setStyle("-fx-background-radius: 20px; -fx-background-color: #FFF;");
         
+        
+        AnchorPane.setRightAnchor(edit, 50d); // distance 0 from right side of 
+        AnchorPane.setTopAnchor(edit, 70d); // distance 0 from top
         
         // Set layout properties to display label and description on separate lines
-        title.setLayoutY(5.0);
-        desc.setLayoutY(30.0);
-        
-        
-        
+        title.setLayoutY(30.0);
+        title.setLayoutX(60.0);
+        desc.setLayoutY(70.0);
+        desc.setLayoutX(60.0);
        
-        taskPane.setStyle("-fx-background-color: #B0C4DE; -fx-border-color: #000000; -fx-border-width: 2px; -fx-padding: 10%;");
+        taskPane.setStyle("-fx-background-color: #FCCA46; -fx-padding: 10%;  -fx-background-radius: 20px;");
 
         taskPane.getChildren().addAll(title, desc, edit);
         
