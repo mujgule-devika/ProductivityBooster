@@ -64,7 +64,7 @@ public class TomatoTimerController {
 
         // Load the alarm sound
         try {
-            alarmSound = new Sound("/Users/vedant/Documents/GitHub/ProductivityBooster/ProductivityBooster/src/application/analog-watch.wav");
+            alarmSound = new Sound("..//ProductivityBooster/ProductivityBooster/src/application/analog-watch.wav");
         } catch (IOException | UnsupportedAudioFileException | LineUnavailableException e) {
             e.printStackTrace();
         }
