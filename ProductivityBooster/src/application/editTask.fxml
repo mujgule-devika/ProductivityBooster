@@ -20,11 +20,11 @@
                <font>
                   <Font name="Heiti SC Medium" size="20.0" />
                </font></Label>
-            <TextField fx:id="editTextTaskName" layoutX="126.0" layoutY="49.0">
+            <TextField fx:id="editTextTaskName" alignment="CENTER" layoutX="106.0" layoutY="60.0" prefHeight="40.0" prefWidth="269.0" promptText="Task Name" style="-fx-background-radius: 20;">
                <font>
                   <Font name="Heiti SC Medium" size="18.0" />
                </font></TextField>
-            <TextField fx:id="editTextTaskDesc" layoutX="126.0" layoutY="100.0">
+            <TextField fx:id="editTextTaskDesc" alignment="CENTER" layoutX="106.0" layoutY="106.0" prefHeight="39.0" prefWidth="270.0" promptText="Description" style="-fx-background-radius: 20;">
                <font>
                   <Font name="Heiti SC Medium" size="18.0" />
                </font></TextField>
