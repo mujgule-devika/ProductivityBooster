@@ -241,9 +241,6 @@ public class MainController {
         }
 
         public void handle(ActionEvent event) {
-            System.out.println("EDIT button clicked");
-            //print out indexes
-            System.out.println(GridPane.getColumnIndex(node) + " " + GridPane.getRowIndex(node));
 
             GridLocation grid = new GridLocation(GridPane.getColumnIndex(node), GridPane.getRowIndex(node));
             editBtnClick(node, grid);
@@ -334,8 +331,6 @@ public class MainController {
             timeline.play();
         }
 
-        System.out.println("Confirm edit button clicked");
-
         String labelName = editTaskTitleLabel.getText();
 
         String oldTaskName = labelName.substring(16);
@@ -369,7 +364,6 @@ public class MainController {
         }
 
         public void handle(ActionEvent event) {
-            System.out.println("Complete button clicked");
 
             Label oldTitle = (Label) node.getChildren().get(0);
             Label oldDesc = (Label) node.getChildren().get(1);
