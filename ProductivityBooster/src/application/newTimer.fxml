@@ -7,12 +7,21 @@
 
 <AnchorPane fx:id="timerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="320.0" style="-fx-background-color: #FCCA46;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TomatoTimerController">
    <children>
-      <Button fx:id="startButton" layoutX="26.0" layoutY="124.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="START" onAction="#handleStartButton" />
-      <Button fx:id="stopButton" layoutX="123.0" layoutY="124.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="STOP" onAction="#handleStopButton"/>
-      <Button fx:id="resetButton" layoutX="223.0" layoutY="124.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="RESET" onAction="#handleResetButton"/>
-      <Label id="timerLabel" fx:id="timerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="112.0" layoutY="49.0" prefHeight="37.0" prefWidth="97.0" text="00: 00">
+      <Button fx:id="startButton" layoutX="26.0" layoutY="111.0" mnemonicParsing="false" onAction="#handleStartButton" prefHeight="39.0" prefWidth="85.0" style="-fx-background-color: #A1C181; -fx-background-radius: 20;" text="START" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="Heiti SC Medium" size="14.0" />
+         </font></Button>
+      <Button fx:id="stopButton" layoutX="123.0" layoutY="111.0" mnemonicParsing="false" onAction="#handleStopButton" prefHeight="39.0" prefWidth="81.0" style="-fx-background-color: #FE7F2D; -fx-background-radius: 20;" text="STOP" textFill="WHITE">
+         <font>
+            <Font name="Heiti SC Medium" size="14.0" />
+         </font></Button>
+      <Button fx:id="resetButton" layoutX="216.0" layoutY="111.0" mnemonicParsing="false" onAction="#handleResetButton" prefHeight="40.0" prefWidth="85.0" style="-fx-background-color: fff; -fx-background-radius: 20;" text="RESET" textFill="#233d4d">
+         <font>
+            <Font name="Heiti SC Medium" size="14.0" />
+         </font></Button>
+      <Label id="timerLabel" fx:id="timerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="104.0" layoutY="30.0" prefHeight="71.0" prefWidth="126.0" text="00: 00" textAlignment="CENTER" textFill="#233d4d">
+         <font>
+            <Font name="Heiti SC Light" size="43.0" />
          </font></Label>
    </children>
 </AnchorPane>
