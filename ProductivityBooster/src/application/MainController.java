@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -110,14 +111,17 @@ public class MainController {
         edit.setMinHeight(44);
         edit.setStyle("-fx-background-radius: 20px; -fx-background-color: #FFF;");
         
-        AnchorPane.setRightAnchor(edit, 50d); // distance 0 from right side of 
-        AnchorPane.setTopAnchor(edit, 70d); // distance 0 from top
+        AnchorPane.setRightAnchor(edit, 80d); // distance 0 from right side of 
+        AnchorPane.setTopAnchor(edit, 140d); // distance 0 from top
             
         // Set layout properties to display label and description on separate lines
-        title.setLayoutY(30.0);
-        title.setLayoutX(60.0);
-        desc.setLayoutY(70.0);
-        desc.setLayoutX(60.0);
+        title.setLayoutY(50.0);
+        title.setLayoutX(100.0);
+        desc.setLayoutY(90.0);
+        desc.setLayoutX(100.0);
+        
+        title.setAlignment(Pos.CENTER);
+        desc.setAlignment(Pos.CENTER);
         
         //Complete button
         Button complete = new Button("Complete");
@@ -127,8 +131,8 @@ public class MainController {
         complete.setMinHeight(44);
         complete.setStyle("-fx-background-radius: 20px; -fx-background-color: #FFF;");
         
-        AnchorPane.setRightAnchor(complete, 50d); // distance 0 from right side of 
-        AnchorPane.setTopAnchor(complete, 120d); // distance 0 from top
+        AnchorPane.setRightAnchor(complete, 80d); // distance 0 from right side of 
+        AnchorPane.setTopAnchor(complete, 200d); // distance 0 from top
               
         taskPane.setStyle("-fx-background-color: #FCCA46; -fx-padding: 10%;  -fx-background-radius: 20px;");
 
@@ -330,12 +334,15 @@ public class MainController {
 	        desc.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 20)); 
 	            
 	        // Set layout properties to display label and description on separate lines
-	        title.setLayoutY(30.0);
-	        title.setLayoutX(60.0);
-	        desc.setLayoutY(70.0);
-	        desc.setLayoutX(60.0);
+	        title.setLayoutY(50.0);
+	        title.setLayoutX(100.0);
+	        desc.setLayoutY(90.0);
+	        desc.setLayoutX(100.0);
+	        
+	        title.setAlignment(Pos.CENTER);
+	        desc.setAlignment(Pos.CENTER);
 	              
-	        taskPane.setStyle("-fx-background-color: #FCCA46; -fx-padding: 10%;  -fx-background-radius: 20px;");
+	        taskPane.setStyle("-fx-background-color: #FE7F2D; -fx-padding: 10%;  -fx-background-radius: 20px;");
 
 	        taskPane.getChildren().addAll(title, desc);
 	        
