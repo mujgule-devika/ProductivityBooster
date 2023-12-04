@@ -5,6 +5,11 @@ import java.util.HashMap;
 public class GridPaneStore {
 	
 	public static HashMap<String, GridLocation> map = new HashMap<String, GridLocation>();
+	public static int completedTaskCount = 0;
+	
+	public static void incrementCompletedTaskCount() {
+		GridPaneStore.completedTaskCount++;
+	}
 
 }
 
