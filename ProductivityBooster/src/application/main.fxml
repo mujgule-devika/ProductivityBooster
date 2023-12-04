@@ -36,9 +36,9 @@
    <center>
       <AnchorPane prefHeight="850.0" prefWidth="1000.0" style="-fx-background-color: ffff;" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="#233d4d" fontSmoothingType="LCD" layoutX="18.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tasks" textAlignment="CENTER" wrappingWidth="145.43798828125">
+            <Text fill="#233d4d" fontSmoothingType="LCD" layoutX="27.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tasks" textAlignment="CENTER" underline="true" wrappingWidth="145.43798828125">
                <font>
-                  <Font name="Heiti SC Medium" size="26.0" />
+                  <Font name="Heiti SC Medium" size="45.0" />
                </font>
             </Text>
             <HBox layoutY="59.0" prefHeight="51.0" prefWidth="1039.0" spacing="500.0">
@@ -46,14 +46,14 @@
                   <Insets bottom="10.0" left="40.0" right="10.0" top="10.0" />
                </padding>
                <children>
-                  <Label alignment="CENTER" style="-fx-border-color: #619B8A; -fx-border-radius: 15; -fx-padding: 5;" text="Current" textFill="#619b8a">
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="111.0" style="-fx-border-color: #FCCA46; -fx-border-radius: 15; -fx-padding: 5; -fx-background-color: #FCCA46; -fx-background-radius: 15;" text="Current" textFill="#233d4d">
                      <font>
-                        <Font name="Heiti SC Medium" size="18.0" />
+                        <Font name="Heiti SC Medium" size="24.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="33.0" prefWidth="115.0" style="-fx-border-color: fe7f2d; -fx-border-radius: 15; -fx-padding: 5;" text="Completed" textFill="#fe7f2d">
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="163.0" style="-fx-border-color: fe7f2d; -fx-border-radius: 15; -fx-padding: 5; -fx-background-color: #fe7f2d; -fx-background-radius: 15;" text="Completed" textFill="WHITE">
                      <font>
-                        <Font name="Heiti SC Medium" size="18.0" />
+                        <Font name="Heiti SC Medium" size="24.0" />
                      </font>
                      <opaqueInsets>
                         <Insets />
