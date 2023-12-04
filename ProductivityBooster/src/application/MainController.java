@@ -25,6 +25,9 @@ public class MainController {
     
     @FXML
     private Button btnStartTimer;
+    
+    @FXML
+    private Button btnShowRewards;
 
     @FXML
     private GridPane todoGridPane;
@@ -184,6 +187,30 @@ public class MainController {
         }
     }
 
+    @FXML
+    void addBtnClick2(ActionEvent event) {
+     try {
+         // Load the newTask.fxml file
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("newReward.fxml"));
+         Parent root = loader.load();
+
+         // Create a new stage for the dialog
+         Stage dialogStage = new Stage();
+         dialogStage.setTitle("Milestones Dialog Box");
+         dialogStage.initModality(Modality.WINDOW_MODAL);
+         dialogStage.initOwner(btnShowRewards.getScene().getWindow());
+
+         // Set the loaded content as the scene for the dialog stage
+         Scene scene = new Scene(root);
+         dialogStage.setScene(scene);
+
+         // Show the dialog and wait for it to be closed
+         dialogStage.showAndWait();
+     } catch (IOException e) {
+         e.printStackTrace();
+     }
+ }
+    
 class Handler1 implements EventHandler<ActionEvent>{
 public void handle(ActionEvent event) {
 	System.out.println("EDIT button clicked");
