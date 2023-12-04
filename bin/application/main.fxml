@@ -15,20 +15,29 @@
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <!-- <fx:include fx:id="newTask" source="newTask.fxml"/> -->
    <left>
-      <VBox prefHeight="400.0" prefWidth="131.0" style="-fx-background-color: #233D4D;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="1000.0" prefWidth="147.0" style="-fx-background-color: #a1c181;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnAddTask" mnemonicParsing="false" onAction="#addBtnClick" prefHeight="62.0" prefWidth="133.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Add Task" textAlignment="CENTER" textFill="WHITE" />
-            <Button fx:id="btnStartTimer" mnemonicParsing="false" onAction="#addBtnClick1" prefHeight="62.0" prefWidth="133.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Tomato Timer" textAlignment="CENTER" textFill="WHITE" />
-            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="133.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Button" textAlignment="CENTER" textFill="WHITE" />
+            <Button fx:id="btnAddTask" mnemonicParsing="false" onAction="#addBtnClick" prefHeight="62.0" prefWidth="145.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Add Task" textAlignment="CENTER" textFill="#233d4d">
+               <font>
+                  <Font name="Heiti SC Medium" size="22.0" />
+               </font></Button>
+            <Button fx:id="btnStartTimer" mnemonicParsing="false" onAction="#addBtnClick1" prefHeight="62.0" prefWidth="144.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Tomato Timer" textAlignment="CENTER" textFill="#233d4d" wrapText="true">
+               <font>
+                  <Font name="Heiti SC Medium" size="22.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="144.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Milestones" textAlignment="CENTER" textFill="#233d4d">
+               <font>
+                  <Font name="Heiti SC Medium" size="22.0" />
+               </font></Button>
          </children>
       </VBox>
    </left>
    <center>
       <AnchorPane prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: ffff;" BorderPane.alignment="CENTER">
          <children>
-            <Text fontSmoothingType="LCD" layoutX="14.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tasks" textAlignment="CENTER" wrappingWidth="76.43798828125">
+            <Text fill="#233d4d" fontSmoothingType="LCD" layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tasks" textAlignment="CENTER" wrappingWidth="145.43798828125">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Heiti SC Medium" size="24.0" />
                </font>
             </Text>
             <HBox layoutY="137.0" prefHeight="400.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
@@ -44,7 +53,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                   </GridPane>
-                  <GridPane>
+                  <GridPane fx:id="completeGridPane">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

@@ -7,24 +7,46 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane fx:id="newTask" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="480.0" style="-fx-background-color: #619B8A;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<DialogPane fx:id="newTask" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="480.0" style="-fx-background-color: #A1C181;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
     <header>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" style="-fx-background-color: #FCCA46;">
-         <children>
-            <Button fx:id="btnConfirmNewTask" layoutX="187.0" layoutY="128.0" mnemonicParsing="false" onAction="#addBtnConfirm" prefHeight="49.0" prefWidth="107.0" style="-fx-background-color: FFF;" text="OK">
-               <font>
-                  <Font name="Helvetica Neue" size="19.0" />
-               </font>
-            </Button>
-            <Label fx:id="addTaskTitleLabel" layoutX="203.0" layoutY="6.0" text="Add your task" />
-            <TextField fx:id="textTaskName" layoutX="161.0" layoutY="47.0" />
-            <TextField fx:id="textTaskDesc" layoutX="160.0" layoutY="87.0" />
-         </children></AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" style="-fx-background-color: #FCCA46;">
+            <children>
+                <Label fx:id="addTaskTitleLabel" layoutX="172.0" layoutY="11.0" prefHeight="36.0" prefWidth="135.0" text="Add your task" textFill="#233d4d">
+                    <font>
+                        <Font name="Heiti SC Medium" size="20.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="textTaskName" layoutX="129.0" layoutY="47.0" promptText="Enter Task Name">
+                    <font>
+                        <Font name="Heiti SC Medium" size="18.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="textTaskDesc" layoutX="129.0" layoutY="94.0" promptText="Enter Task Desc">
+                    <font>
+                        <Font name="Heiti SC Medium" size="18.0" />
+                    </font>
+                </TextField>
+                <!-- New TextField for user input of timer duration -->
+                <TextField fx:id="timerInput" layoutX="129.0" layoutY="141.0" promptText="Enter timer duration" prefHeight="26.0" prefWidth="200.0">
+                    <font>
+                        <Font name="Heiti SC Medium" size="18.0" />
+                    </font>
+                </TextField>
+            </children>
+        </AnchorPane>
     </header>
     <content>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" style="-fx-background-color: #619B8A;" />
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="69.0" prefWidth="480.0" style="-fx-background-color: fcca46;">
+            <children>
+                <Button fx:id="btnConfirmNewTask" layoutX="193.0" layoutY="-14.0" mnemonicParsing="false" onAction="#addBtnConfirm" prefHeight="44.0" prefWidth="98.0" style="-fx-background-color: #fff; -fx-background-radius: 20px;" text="OK" textFill="#233d4d">
+                    <font>
+                        <Font name="Helvetica Neue" size="19.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
     </content>
     <expandableContent>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
     </expandableContent>
 </DialogPane>
