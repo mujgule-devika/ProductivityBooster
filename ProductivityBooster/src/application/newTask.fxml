@@ -16,18 +16,18 @@
                         <Font name="Heiti SC Medium" size="20.0" />
                     </font>
                 </Label>
-                <TextField fx:id="textTaskName" layoutX="129.0" layoutY="47.0" promptText="Enter Task Name">
+                <TextField fx:id="textTaskName" layoutX="129.0" layoutY="47.0" promptText="Enter Task Name" style="-fx-background-radius: 20;">
                     <font>
                         <Font name="Heiti SC Medium" size="18.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="textTaskDesc" layoutX="129.0" layoutY="94.0" promptText="Enter Task Desc">
+                <TextField fx:id="textTaskDesc" layoutX="129.0" layoutY="94.0" promptText="Enter Task Desc" style="-fx-background-radius: 20;">
                     <font>
                         <Font name="Heiti SC Medium" size="18.0" />
                     </font>
                 </TextField>
                 <!-- New TextField for user input of timer duration -->
-                <TextField fx:id="timerInput" layoutX="129.0" layoutY="141.0" promptText="Enter timer duration" prefHeight="26.0" prefWidth="200.0">
+                <TextField fx:id="timerInput" layoutX="129.0" layoutY="141.0" prefHeight="31.0" prefWidth="228.0" promptText="Enter timer duration" style="-fx-background-radius: 20;">
                     <font>
                         <Font name="Heiti SC Medium" size="18.0" />
                     </font>

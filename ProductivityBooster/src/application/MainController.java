@@ -114,10 +114,14 @@ public class MainController {
 
         // User-input timer duration
         int timerDuration = Integer.parseInt(timerInput.getText());
+        
+        Label timerDisplay = new Label();
+        timerDisplay.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 20));
+
 
         // Button to start/edit the timer
         Button timerButton = new Button("Start Timer");
-        TimerHandler timerHandler = new TimerHandler(taskPane, timerDuration, timerButton, desc);
+        TimerHandler timerHandler = new TimerHandler(taskPane, timerDuration, timerButton, timerDisplay);
         timerButton.setOnAction(timerHandler);
         timerButton.setMinWidth(98);
         timerButton.setMinHeight(44);
@@ -136,6 +140,18 @@ public class MainController {
 
         AnchorPane.setRightAnchor(edit, 80d); // distance 0 from right side
         AnchorPane.setTopAnchor(edit, 240d); // distance 0 from top
+        
+        // Set layout properties to display label and description on separate lines
+        title.setLayoutY(50.0);
+        title.setLayoutX(100.0);
+        desc.setLayoutY(70.0);
+        desc.setLayoutX(100.0);
+        timerDisplay.setLayoutX(100);
+        timerDisplay.setLayoutY(90.0);
+        
+        title.setAlignment(Pos.CENTER);
+        desc.setAlignment(Pos.CENTER);
+        
 
         // Button to complete the task
         Button complete = new Button("Complete");
@@ -150,7 +166,7 @@ public class MainController {
 
         taskPane.setStyle("-fx-background-color: #FCCA46; -fx-padding: 10%;  -fx-background-radius: 20px;");
 
-        taskPane.getChildren().addAll(title, desc, timerButton, edit, complete);
+        taskPane.getChildren().addAll(title, desc, timerDisplay, timerButton, edit, complete);
 
         // Find the next available position in the GridPane
         int rowIndex = 0;
@@ -218,6 +234,8 @@ public class MainController {
                                     int minutes = timeSeconds[0] / 60;
                                     int seconds = timeSeconds[0] % 60;
                                     timerDisplay.setText(String.format("%02d:%02d", minutes, seconds));
+                                    timerDisplay.setLayoutX(100.0);
+                                    timerDisplay.setLayoutY(110.0);
 
                                     if (timeSeconds[0] <= 0) {
                                         // Stop the timer when it reaches zero
@@ -367,26 +385,35 @@ public class MainController {
 
             Label oldTitle = (Label) node.getChildren().get(0);
             Label oldDesc = (Label) node.getChildren().get(1);
+            Label oldTimerDisplay= (Label) node.getChildren().get(2);
+
 
             //create new pane
             AnchorPane taskPane = new AnchorPane();
             Label title = new Label(oldTitle.getText());
             Label desc = new Label(oldDesc.getText());
+            Label taskCompleted = new Label(oldTimerDisplay.getText());
+
+
             title.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 20));
             desc.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 20));
+            taskCompleted.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 20));
 
             // Set layout properties to display label and description on separate lines
             title.setLayoutY(50.0);
             title.setLayoutX(100.0);
             desc.setLayoutY(90.0);
             desc.setLayoutX(100.0);
+            taskCompleted.setLayoutX(100.0);
+            taskCompleted.setLayoutY(110.0);
 
             title.setAlignment(Pos.CENTER);
             desc.setAlignment(Pos.CENTER);
+            taskCompleted.setAlignment(Pos.CENTER);
 
             taskPane.setStyle("-fx-background-color: #FE7F2D; -fx-padding: 10%;  -fx-background-radius: 20px;");
 
-            taskPane.getChildren().addAll(title, desc);
+            taskPane.getChildren().addAll(title, desc, taskCompleted);
 
             // Find the next available position in the GridPane
             int rowIndex = 0;
