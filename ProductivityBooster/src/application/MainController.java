@@ -1,5 +1,9 @@
 package application;
 
+import java.io.InputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
@@ -8,22 +12,25 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Labeled;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.util.List;
@@ -55,6 +62,12 @@ public class MainController {
     private Button btnConfirmNewTask;
     
     @FXML
+    private AnchorPane EmptyPane;
+
+    @FXML
+    private VBox MilestonesVBox;
+    
+    @FXML
     Label addTaskTitleLabel;
     
     @FXML
@@ -84,6 +97,7 @@ public class MainController {
             // Set the reference to the todoGridPane
             mainController.setTodoGridPane(todoGridPane);
             mainController.setCompleteGridPane(completeGridPane);
+            mainController.setMilestonesVBox(MilestonesVBox);
 
             // Create a new stage for the dialog
             Stage dialogStage = new Stage();
@@ -465,6 +479,7 @@ public class MainController {
 
           //set global complete count ++
 	        GridPaneStore.incrementCompletedTaskCount();
+	        updateMilestones();
 		}
 	
 	}
@@ -491,11 +506,129 @@ public class MainController {
     	this.completeGridPane = completeGridPane;
     }
     
-//    public void setEditPaneItems(TextField editTextTaskName, TextField editTextTaskDesc) {
-//    	this.editTextTaskName = editTextTaskName;
-//    	this.editTextTaskDesc = editTextTaskDesc;
-//    }
+    public void setMilestonesVBox(VBox MilestonesVBox) {
+    	this.MilestonesVBox = MilestonesVBox;
+    }
     
+    public void updateMilestones() {
+    	//update milestones here
+    	int currentCount = GridPaneStore.getCompletedTaskCount();
+    	
+    	if(currentCount == 3) {
+    		//gold medal
+    		ObservableList<Node> list = MilestonesVBox.getChildren();
+    		
+    		AnchorPane pane = new AnchorPane();
+    		pane.setPadding(new Insets(5,5,5,5));
+    		
+    		//creating the image object
+    	      InputStream stream;
+			try {
+				stream = new FileInputStream("../ProductivityBooster/src/application/gold.png");
+				Image image = new Image(stream);
+	    	      //Creating the image view
+	    	      ImageView imageView = new ImageView(image);
+	    	      
+	    	      imageView.setFitWidth(100);
+	    	      imageView.setPreserveRatio(true);
+//	    	      imageView.setLayoutY(10);
+	    	      
+	    	      pane.getChildren().add(imageView);
+	    	      
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				System.out.println("File gold.png not found!");
+				e.printStackTrace();
+			}
+
+    		list.add(pane);
+    		
+    	}else if(currentCount == 2) {
+    		//silver medal
+    		ObservableList<Node> list = MilestonesVBox.getChildren();
+    		
+    		AnchorPane pane = new AnchorPane();
+    		pane.setPadding(new Insets(5,5,5,5));
+    		
+    		//creating the image object
+    	      InputStream stream;
+			try {
+				stream = new FileInputStream("../ProductivityBooster/src/application/silver.png");
+				Image image = new Image(stream);
+	    	      //Creating the image view
+	    	      ImageView imageView = new ImageView(image);
+	    	      
+	    	      imageView.setFitWidth(100);
+	    	      imageView.setPreserveRatio(true);
+	    	      
+//	    	      imageView.setLayoutY(10);
+	    	      
+	    	      pane.getChildren().add(imageView);
+	    	      
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				System.out.println("File silver.png not found!");
+				e.printStackTrace();
+			}
+
+    		list.add(pane);
+    		
+    	}else if(currentCount == 1) {
+    		//bronze medal
+    		ObservableList<Node> list = MilestonesVBox.getChildren();
+    		list.remove(0);
+    		
+    		AnchorPane pane = new AnchorPane();
+    		pane.setPadding(new Insets(5,5,5,5));
+    		Label label = new Label("Congratulations! Completed tasks:");
+    		label.setMaxWidth(100);
+    		label.setWrapText(true);
+
+    		pane.getChildren().add(label);
+    		
+    		Label numLabel = new Label("1");
+    		numLabel.setAlignment(Pos.CENTER);
+    		numLabel.setMaxWidth(100);
+    		numLabel.setWrapText(true);
+    		
+    		AnchorPane numPane = new AnchorPane();
+    		numPane.setPadding(new Insets(5,5,5,5));
+    		
+    		numPane.getChildren().add(numLabel);
+    		
+    		AnchorPane pane2 = new AnchorPane();
+    		pane2.setPadding(new Insets(5,5,5,5));
+    		
+    		//creating the image object
+    	      InputStream stream;
+			try {
+				stream = new FileInputStream("../ProductivityBooster/src/application/bronze.png");
+				Image image = new Image(stream);
+	    	      //Creating the image view
+	    	      ImageView imageView = new ImageView(image);
+	    	      
+	    	      imageView.setFitWidth(100);
+	    	      imageView.setPreserveRatio(true);
+//	    	      imageView.setLayoutY(10);
+	    	      
+	    	      pane2.getChildren().add(imageView);
+	    	      
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				System.out.println("File bronze.png not found!");
+				e.printStackTrace();
+			}
+
+    		list.addAll(pane, numPane, pane2);
+    		
+    	}
+    	
+    	ObservableList<Node> list = MilestonesVBox.getChildren();
+    	AnchorPane firstPane = (AnchorPane) list.get(1);
+		Label label = (Label) firstPane.getChildren().get(0);
+		label.setText(""+GridPaneStore.getCompletedTaskCount());
+		
+    }
     
 }
 

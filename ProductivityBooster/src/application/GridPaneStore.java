@@ -10,6 +10,10 @@ public class GridPaneStore {
 	public static void incrementCompletedTaskCount() {
 		GridPaneStore.completedTaskCount++;
 	}
+	
+	public static int getCompletedTaskCount() {
+		return completedTaskCount;
+	}
 
 }
 
