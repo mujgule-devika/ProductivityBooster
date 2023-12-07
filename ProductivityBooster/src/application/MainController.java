@@ -140,16 +140,16 @@ public class MainController {
         AnchorPane taskPane = new AnchorPane();
         Label title = new Label(textTaskName.getText());
         Label desc = new Label(textTaskDesc.getText());
-        title.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 20));
-        desc.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 20));
-
+        title.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 22));
+        desc.setFont(Font.font("Heiti SC", FontWeight.LIGHT, FontPosture.REGULAR, 20));
+        title.setAlignment(Pos.CENTER);
+        desc.setAlignment(Pos.CENTER);
         // User-input timer duration
         int timerDuration = Integer.parseInt(timerInput.getText());
         
         Label timerDisplay = new Label();
-        timerDisplay.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 20));
-
-
+        timerDisplay.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 26));
+        timerDisplay.setMinWidth(98);
         // Button to start/edit the timer
         Button timerButton = new Button("Start Timer");
         TimerHandler timerHandler = new TimerHandler(taskPane, timerDuration, timerButton, timerDisplay);
@@ -157,8 +157,9 @@ public class MainController {
         timerButton.setMinWidth(98);
         timerButton.setMinHeight(44);
         timerButton.setStyle("-fx-background-radius: 20px; -fx-background-color: #FFF;");
-
-        AnchorPane.setRightAnchor(timerButton, 80d); // distance 0 from right side
+        timerButton.setAlignment(Pos.CENTER);
+        
+        AnchorPane.setLeftAnchor(timerButton, 85d); // distance 0 from right side
         AnchorPane.setTopAnchor(timerButton, 180d); // distance 0 from top
 
         // Button to edit the task
@@ -168,17 +169,21 @@ public class MainController {
         edit.setMinWidth(98);
         edit.setMinHeight(44);
         edit.setStyle("-fx-background-radius: 20px; -fx-background-color: #FFF;");
+        edit.setAlignment(Pos.CENTER);
 
-        AnchorPane.setRightAnchor(edit, 80d); // distance 0 from right side
+        AnchorPane.setLeftAnchor(edit, 140d); // distance 0 from right side
         AnchorPane.setTopAnchor(edit, 240d); // distance 0 from top
         
         // Set layout properties to display label and description on separate lines
-        title.setLayoutY(50.0);
+        title.setLayoutY(30.0);
         title.setLayoutX(100.0);
-        desc.setLayoutY(70.0);
-        desc.setLayoutX(100.0);
+        
+        desc.setLayoutY(60.0);
+        desc.setLayoutX(60.0);
+        desc.setMaxWidth(160.0);
+        desc.setWrapText(true);
         timerDisplay.setLayoutX(100);
-        timerDisplay.setLayoutY(90.0);
+        timerDisplay.setLayoutY(100.0);
         
         title.setAlignment(Pos.CENTER);
         desc.setAlignment(Pos.CENTER);
@@ -191,9 +196,10 @@ public class MainController {
         complete.setMinWidth(98);
         complete.setMinHeight(44);
         complete.setStyle("-fx-background-radius: 20px; -fx-background-color: #FFF;");
-
-        AnchorPane.setRightAnchor(complete, 80d); // distance 0 from right side
-        AnchorPane.setTopAnchor(complete, 300d); // distance 0 from top
+        complete.setAlignment(Pos.CENTER);
+         
+        AnchorPane.setLeftAnchor(complete, 30d); // distance 0 from right side
+        AnchorPane.setTopAnchor(complete, 240d); // distance 0 from top
 
         taskPane.setStyle("-fx-background-color: #FCCA46; -fx-padding: 10%;  -fx-background-radius: 20px;");
 
@@ -472,20 +478,34 @@ public class MainController {
             AnchorPane taskPane = new AnchorPane();
             Label title = new Label(oldTitle.getText());
             Label desc = new Label(oldDesc.getText());
-            Label taskCompleted = new Label(oldTimerDisplay.getText());
+            String stg = new String();
+            
+            if (oldTimerDisplay.getText().isEmpty()) {
+            	stg = "";
+            } else {stg ="Time Saved: " + oldTimerDisplay.getText();
+            
+            };
+            
+            Label taskCompleted = new Label(stg);
+           
 
 
-            title.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 20));
-            desc.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 20));
+            title.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 22));
+            desc.setFont(Font.font("Heiti SC", FontWeight.MEDIUM, FontPosture.REGULAR, 20));
             taskCompleted.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 20));
 
             // Set layout properties to display label and description on separate lines
-            title.setLayoutY(50.0);
-            title.setLayoutX(100.0);
-            desc.setLayoutY(90.0);
-            desc.setLayoutX(100.0);
-            taskCompleted.setLayoutX(100.0);
-            taskCompleted.setLayoutY(110.0);
+            title.setLayoutY(30.0);
+            title.setLayoutX(110.0);
+          
+            desc.setLayoutY(80.0);
+            desc.setLayoutX(80.0);
+            desc.setMaxWidth(150.0);
+            desc.setWrapText(true);
+            taskCompleted.setLayoutX(80.0);
+            taskCompleted.setLayoutY(140.0);
+            taskCompleted.setMaxWidth(120.0);
+            taskCompleted.setWrapText(true);
 
             title.setAlignment(Pos.CENTER);
             desc.setAlignment(Pos.CENTER);
@@ -647,8 +667,10 @@ public class MainController {
     		AnchorPane pane = new AnchorPane();
     		pane.setPadding(new Insets(5,5,5,5));
     		Label label = new Label("Congratulations! Completed tasks:");
+    		label.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 12));
     		label.setMaxWidth(100);
     		label.setWrapText(true);
+    		
 
     		pane.getChildren().add(label);
     		
@@ -656,6 +678,7 @@ public class MainController {
     		numLabel.setAlignment(Pos.CENTER);
     		numLabel.setMaxWidth(100);
     		numLabel.setWrapText(true);
+    		numLabel.setFont(Font.font("Heiti SC", FontWeight.BOLD, FontPosture.REGULAR, 16)); 
     		
     		AnchorPane numPane = new AnchorPane();
     		numPane.setPadding(new Insets(5,5,5,5));
