@@ -3,6 +3,10 @@ package application;
 import java.io.InputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -32,8 +36,8 @@ import javafx.util.Duration;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.io.IOException;
-import java.util.List;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class MainController {
 
@@ -83,6 +87,19 @@ public class MainController {
     TextField editTextTaskName;
 
     private Timeline timeline;
+    
+    private Sound alarmSound;
+    
+    @FXML
+    private void initialize() {
+        // You can perform any additional initialization here
+        // Load the alarm sound
+        try {
+            alarmSound = new Sound("../ProductivityBooster/src/application/analog-watch.wav");
+        } catch (IOException | UnsupportedAudioFileException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void addBtnClick() {
@@ -254,6 +271,8 @@ public class MainController {
                                     if (timeSeconds[0] <= 0) {
                                         // Stop the timer when it reaches zero
                                         timeline.stop();
+                                        
+                                        handleTimerEnd(node);
                                     }
                                 }
                             }));
@@ -396,6 +415,8 @@ public class MainController {
         }
 
         public void handle(ActionEvent event) {
+        	
+        	stopAlarmSound();
 
             Label oldTitle = (Label) node.getChildren().get(0);
             Label oldDesc = (Label) node.getChildren().get(1);
@@ -630,5 +651,49 @@ public class MainController {
 		
     }
     
+    private void handleTimerEnd(Node node) {
+        // Play the alarm sound
+        playAlarmSound();
+
+        // Change the background color to red
+        node.setStyle("-fx-background-color: #FF0000;");
+
+        // You can add more logic here based on what should happen when the timer reaches 00:00
+    }
+    
+    private void playAlarmSound() {
+        if (alarmSound != null) {
+            try {
+                alarmSound.playAudio();
+                System.out.println("Timer reached zero! Starting alarm!");
+                
+                // And From your main() method or any other method
+                Timer timer = new Timer();
+                timer.schedule(new DelayedAlarmSoundStop(), 5000);
+                
+            } catch (IOException | LineUnavailableException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    private void stopAlarmSound() {
+        if (alarmSound != null) {
+            try {
+                alarmSound.stopAudio();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    class DelayedAlarmSoundStop extends TimerTask {
+        public void run() {
+        	System.out.println("5 seconds passed. Timer stopped!");
+        	stopAlarmSound(); 
+        }
+    }
+
+
 }
 
