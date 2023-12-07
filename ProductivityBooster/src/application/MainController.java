@@ -171,7 +171,7 @@ public class MainController {
         edit.setStyle("-fx-background-radius: 20px; -fx-background-color: #FFF;");
         edit.setAlignment(Pos.CENTER);
 
-        AnchorPane.setLeftAnchor(edit, 140d); // distance 0 from right side
+        AnchorPane.setLeftAnchor(edit, 30d); // distance 0 from right side
         AnchorPane.setTopAnchor(edit, 240d); // distance 0 from top
         
         // Set layout properties to display label and description on separate lines
@@ -198,7 +198,7 @@ public class MainController {
         complete.setStyle("-fx-background-radius: 20px; -fx-background-color: #FFF;");
         complete.setAlignment(Pos.CENTER);
          
-        AnchorPane.setLeftAnchor(complete, 30d); // distance 0 from right side
+        AnchorPane.setLeftAnchor(complete, 140d); // distance 0 from right side
         AnchorPane.setTopAnchor(complete, 240d); // distance 0 from top
 
         taskPane.setStyle("-fx-background-color: #FCCA46; -fx-padding: 10%;  -fx-background-radius: 20px;");
@@ -321,6 +321,11 @@ public class MainController {
 
             // Extract the remaining time from the label
             String timeString = timerDisplay.getText();
+            
+            if(timeString == null || timeString == "") {
+            		return;
+            }
+            
             final int[] remainingTime = {Integer.parseInt(timeString.substring(0, 2)) * 60 +
                     Integer.parseInt(timeString.substring(3))};
 
