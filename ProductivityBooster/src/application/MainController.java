@@ -292,12 +292,57 @@ public class MainController {
         }
 
         public void handle(ActionEvent event) {
-
             GridLocation grid = new GridLocation(GridPane.getColumnIndex(node), GridPane.getRowIndex(node));
+
+            // Check if the task has an active timer
+            if (hasActiveTimer(node)) {
+                resumeTimer(node);
+            }
+
             editBtnClick(node, grid);
         }
 
+        // Check if the AnchorPane has an active timer
+        private boolean hasActiveTimer(AnchorPane node) {
+            return node.getChildren().stream()
+                    .anyMatch(child -> child instanceof Button && ((Button) child).getText().equals("Start Timer"));
+        }
+
+        // Resume the timer associated with the AnchorPane
+        private void resumeTimer(AnchorPane node) {
+            Label timerDisplay = (Label) node.getChildren().get(2);
+            Button timerButton = (Button) node.getChildren().get(3);
+
+            // Extract the remaining time from the label
+            String timeString = timerDisplay.getText();
+            final int[] remainingTime = {Integer.parseInt(timeString.substring(0, 2)) * 60 +
+                    Integer.parseInt(timeString.substring(3))};
+
+            // Start a new timeline with the remaining time
+            Timeline timeline = new Timeline();
+            timeline.setCycleCount(Timeline.INDEFINITE);
+            timeline.getKeyFrames().add(
+                    new KeyFrame(Duration.seconds(1),
+                            new EventHandler<ActionEvent>() {
+                                public void handle(ActionEvent event) {
+                                    remainingTime[0]--;
+                                    int minutes = remainingTime[0] / 60;
+                                    int seconds = remainingTime[0] % 60;
+                                    timerDisplay.setText(String.format("%02d:%02d", minutes, seconds));
+                                    timerDisplay.setLayoutX(100.0);
+                                    timerDisplay.setLayoutY(110.0);
+
+                                    if (remainingTime[0] <= 0) {
+                                        timeline.stop();
+                                    }
+                                }
+                            }));
+            timeline.play();
+            timerButton.setDisable(true);
+        }
+
     }
+
 
     void editBtnClick(AnchorPane node, GridLocation gridLoc) {
         if (timeline != null) {
