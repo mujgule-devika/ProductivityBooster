@@ -92,6 +92,12 @@ public class MainController {
 
 	private static final String ALARM_SOUND_PATH = "../ProductivityBooster/src/application/analog-watch.wav";
 
+	private static final String BRONZE_BADGE_IMG = "../ProductivityBooster/src/application/bronze.png";
+
+	private static final String SILVER_BADGE_IMG = "../ProductivityBooster/src/application/silver.png";
+
+	private static final String GOLD_BADGE_IMG = "../ProductivityBooster/src/application/gold.png";
+
 	@FXML
 	private void initialize() {
 		// Load the alarm sound
@@ -603,7 +609,7 @@ public class MainController {
 			// creating the image object
 			InputStream stream;
 			try {
-				stream = new FileInputStream("../ProductivityBooster/src/application/gold.png");
+				stream = new FileInputStream(GOLD_BADGE_IMG);
 				Image image = new Image(stream);
 				// Creating the image view
 				ImageView imageView = new ImageView(image);
@@ -632,7 +638,7 @@ public class MainController {
 			// creating the image object
 			InputStream stream;
 			try {
-				stream = new FileInputStream("../ProductivityBooster/src/application/silver.png");
+				stream = new FileInputStream(SILVER_BADGE_IMG);
 				Image image = new Image(stream);
 				// Creating the image view
 				ImageView imageView = new ImageView(image);
@@ -683,7 +689,7 @@ public class MainController {
 			// creating the image object
 			InputStream stream;
 			try {
-				stream = new FileInputStream("../ProductivityBooster/src/application/bronze.png");
+				stream = new FileInputStream(BRONZE_BADGE_IMG);
 				Image image = new Image(stream);
 				// Creating the image view
 				ImageView imageView = new ImageView(image);
