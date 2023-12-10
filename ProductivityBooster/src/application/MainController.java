@@ -755,6 +755,7 @@ public class MainController {
             try {
                 alarmSound.stopAudio();
             } catch (IOException e) {
+            	System.out.print("stop alarm method called");
                 e.printStackTrace();
             }
         }

@@ -59,7 +59,7 @@ public class TomatoTimerController {
 
     @FXML
     private void initialize() {
-        // You can perform any additional initialization here
+        
         updateTimerLabel();  // Ensure the label is updated initially
 
         // Load the alarm sound
@@ -102,7 +102,6 @@ public class TomatoTimerController {
         // Change the background color to red
         timerPane.setStyle("-fx-background-color: #FF0000;");
 
-        // You can add more logic here based on what should happen when the timer reaches 00:00
     }
 
     private void playAlarmSound() {
