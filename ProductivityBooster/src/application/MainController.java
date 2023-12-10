@@ -616,7 +616,6 @@ public class MainController {
 
 				imageView.setFitWidth(100);
 				imageView.setPreserveRatio(true);
-//	    	      imageView.setLayoutY(10);
 
 				pane.getChildren().add(imageView);
 
@@ -646,7 +645,6 @@ public class MainController {
 				imageView.setFitWidth(100);
 				imageView.setPreserveRatio(true);
 
-//	    	      imageView.setLayoutY(10);
 
 				pane.getChildren().add(imageView);
 
